@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'))
+  res.json('Hello World')
 })
 
 // end point for getting user's exercise log
