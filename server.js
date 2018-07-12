@@ -3,8 +3,8 @@ const app = express();
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const User = require('./Schema').User
-const Exercise = require('./Schema').Exercise
+const User = require('./schema').User
+const Exercise = require('./schema').Exercise
 const path = require('path')
 
 require('dotenv').config()
