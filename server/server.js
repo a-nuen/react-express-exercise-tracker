@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const User = require('./Schema').User
 const Exercise = require('./Schema').Exercise
+const path = require('path')
 
 require('dotenv').config()
 
@@ -89,6 +90,12 @@ app.post('/api/exercise/add', (req, res) => {
   })
 })
 
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 app.listen(process.env.PORT || 8000, () => {
   console.log('Server is listening on port 8000!')
