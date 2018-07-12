@@ -15,11 +15,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(morgan('dev'))
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
-
 // end point for getting user's exercise log
 app.get('/api/exercise/log', (req, res) =>{
   const username = req.query.username
