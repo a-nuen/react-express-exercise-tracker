@@ -36,7 +36,7 @@ export default class LogHistoryForm extends React.Component {
            data: res.data,
            invalid: false,
            modal: true  
-        }) 
+        })  
       })
       .catch(err => console.log(err))
   }
@@ -80,7 +80,7 @@ export default class LogHistoryForm extends React.Component {
         <Modal open={this.state.modal} onClose={this.closeModal} closeIcon>
           <Header content='History' />
           <Modal.Content>
-            {this.state.data.map(item =>
+            {this.state.data.length > 0 && this.state.data.map(item =>
               <List key={item._id}>
                 <List.Item key={item._id+1}> {item.date.split('T')[0].split('-').reverse().join('/')} </List.Item>
                 <List.Item key={item._id+2}> {item.description} </List.Item>
