@@ -22,10 +22,6 @@ if(process.env.NODE_ENV === 'production') {
   })
 }
 
-app.get('/', (req, res) => {
-  res.json('Hello World')
-})
-
 // end point for getting user's exercise log
 app.get('/api/exercise/log', (req, res) =>{
   const username = req.query.username
@@ -95,8 +91,6 @@ app.post('/api/exercise/add', (req, res) => {
     }
   })
 })
-
-
 
 app.listen(process.env.PORT || 8000, () => {
   console.log('Server is listening on port 8000!')
