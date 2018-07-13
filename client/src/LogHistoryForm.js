@@ -15,7 +15,7 @@ const styles = {
 
 export default class LogHistoryForm extends React.Component {
   state = {
-    data:[],
+    data:null,
     invalid: false,
     modal: false
   }
@@ -36,7 +36,9 @@ export default class LogHistoryForm extends React.Component {
            data: res.data,
            invalid: false,
            modal: true  
-        })  
+        })
+        console.log(res)
+          
       })
       .catch(err => console.log(err))
   }
@@ -80,7 +82,8 @@ export default class LogHistoryForm extends React.Component {
         <Modal open={this.state.modal} onClose={this.closeModal} closeIcon>
           <Header content='History' />
           <Modal.Content>
-            {this.state.data.length && this.state.data.map(item =>
+            {!this.state.data && <div>No history found</div> }
+            {this.state.data && this.state.data.map(item =>
               <List key={item._id}>
                 <List.Item key={item._id+1}> {item.date.split('T')[0].split('-').reverse().join('/')} </List.Item>
                 <List.Item key={item._id+2}> {item.description} </List.Item>
@@ -90,7 +93,6 @@ export default class LogHistoryForm extends React.Component {
               <hr />
               </List>
             )}
-            {this.state.data.length === 0 && <div>No history found</div> }
           </Modal.Content>
         </Modal>
       </Form> 
