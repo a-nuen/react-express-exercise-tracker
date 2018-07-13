@@ -32,9 +32,7 @@ export default class SignUpForm extends React.Component {
         this.setState({ status: res.status }) 
         setTimeout(() => {
           this.setState({ status: 0})
-        }, 3000);
-        console.log(res)
-        
+        }, 3000); 
       })
       .catch(err => console.log(err))
   }
