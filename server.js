@@ -10,7 +10,8 @@ const exerciseRouter = require('./routes/api')
 
 require('dotenv').config()
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err))
 
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(morgan('dev'))
 
-app.use('api/exercise', exerciseRouter)
+app.use('/api/exercise', exerciseRouter)
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
