@@ -81,7 +81,7 @@ export default class LogHistoryForm extends React.Component {
           <Header content='History' />
           <Modal.Content>
             {!this.state.data.length && <div>No history found</div>}
-            {this.state.data.length && this.state.data.map(item =>
+            {this.state.data.map(item =>
               <List key={item._id}>
                 <List.Item key={item._id+1}> {item.date.split('T')[0].split('-').reverse().join('/')} </List.Item>
                 <List.Item key={item._id+2}> {item.description} </List.Item>
