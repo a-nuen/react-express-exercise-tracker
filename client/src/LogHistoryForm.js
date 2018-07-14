@@ -37,7 +37,6 @@ export default class LogHistoryForm extends React.Component {
            invalid: false,
            modal: true  
         })
-        console.log(res)
       })
       .catch(err => console.log(err))
   }
